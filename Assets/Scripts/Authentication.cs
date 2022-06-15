@@ -80,18 +80,27 @@ namespace RestAPIHelper
 
         public void GoogleLogin(Action<string> data)
         {
-            GoogleSignIn.Configuration = new GoogleSignInConfiguration
+            if (GoogleSignIn.DefaultInstance == null)
             {
-                RequestIdToken = true,
-                // Copy this ClientID from GCP OAuth Client IDs(Step 4).
-                WebClientId = config.webClientId,
-                RequestAuthCode = true,
-                AdditionalScopes = new List<string>()
+                string webClient = config.webClientId;
+
+                if(Application.platform == RuntimePlatform.IPhonePlayer)
+                    webClient = config.webClientIdIOS;
+
+                GoogleSignIn.Configuration = new GoogleSignInConfiguration
                 {
-                    "email", // Scope for Email
-                    "profile" // Scope for Public profile
-                }
-            };
+                    RequestIdToken = true,
+                    // Copy this ClientID from GCP OAuth Client IDs(Step 4).
+                    WebClientId = webClient,
+                    RequestAuthCode = true,
+                    AdditionalScopes = new List<string>()
+                    {
+                        "email", // Scope for Email
+                        "profile" // Scope for Public profile
+                    }
+                };
+
+            }
 
             //Google Sign-In SDK
             Task<GoogleSignInUser> signIn = GoogleSignIn.DefaultInstance.SignIn();

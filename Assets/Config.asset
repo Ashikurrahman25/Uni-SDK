@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   webAPI: AIzaSyA3CJ_6XBuu8q-K148tKk0rwFz_5adBtLI
   webClientId: 878921656834-b66cshl4ogd42lk0dpnv1kebuggnhpj1.apps.googleusercontent.com
+  webClientIdIOS: 878921656834-b66cshl4ogd42lk0dpnv1kebuggnhpj1.apps.googleusercontent.com
   authDatabaseURL: https://authentication-89280-default-rtdb.asia-southeast1.firebasedatabase.app/
   gameName: BSBD

@@ -7,6 +7,7 @@ public class Config : ScriptableObject
 {
     public string webAPI;
     public string webClientId;
+    public string webClientIdIOS;
     public string authDatabaseURL;
     public string gameName;
 }
